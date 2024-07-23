@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html> 
+    <style>
+        body{
+            background-image: url(https://pbs.twimg.com/media/EjS_hIfUcAA1nGh.jpg:large);
+        }
+        .button{
+            height:50px;
+            width:100px;
+        }
+        
+    </style>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login</title>
+    </head>
+    <body>
+        <center> 
+<h3> login here </h3>
+        <form action="login.jsp" method="POST">
+            
+            <table>
+                <tr>
+                    <td>UserName:</td>
+                    <td>
+                        <input type="text" Name="EmailAddress">
+                    </td>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="Passsword">
+                    </td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+            <br>
+           
+               <input type="submit" name="submit" value="Login">
+               <br>
+               <br>
+               forgot your password? <a Href="ForgetPassword.jsp">Change Password Here</a>
+               <br>
+               <br>
+               Not yet a member? <a Href="signup.jsp">Sign Up</a> 
+               </form>
+           </center>
+    </body>
+</html>
