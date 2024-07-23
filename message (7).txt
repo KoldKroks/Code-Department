@@ -1,0 +1,98 @@
+<%-- 
+    Document   : RegisterForm
+    Created on : 23 Nov 2020, 04:34:14
+    Author     : User
+--%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <style>
+        body{
+            background-image: url(https://images8.alphacoders.com/434/434693.png);
+        }
+        .button{
+            height:50px;
+            width:100px;
+        }
+        
+    </style>
+    <head>
+        <title>Register</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+    <center>
+        <h1><font color="red">Please Fill Out The Form Below</font></h1>
+    </center>
+    <center>
+    <%   
+        String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String sourceURL = "jdbc:sqlserver://DESKTOP-07O5PL8\\WORKPLZ:1433;databaseName=Forum;user=sa;password=password123";
+                
+        try {
+            Class.forName(driverName);
+            Connection con = null;
+            con = DriverManager.getConnection(sourceURL);
+            
+            Statement st = con.createStatement();
+            
+            ArrayList sec = new ArrayList();
+            ResultSet result = st.executeQuery("SELECT UniqueQuestion FROM UniqueQuestions");
+            int count = 0;
+            while(result.next()){
+               sec.add(result.getString("UniqueQuestion"));
+               count++;
+            }
+                %>
+                
+                <form action="Register.jsp" method="POST">
+                    <font color="white">Email Address:</font>
+                    <input type="text" name="user" required>
+                    <br>
+                    <br>
+                    <font color="white">Password:</font>
+                    <input type="text" name="pass" required>
+                    <br>
+                    <br>
+                    <font color="white">Re-type Password:</font>
+                    <input type="text" name="pass2" required>
+                    <br>
+                    <br>
+                    <font color="white">First Name:</font>
+                    <input type="text" name="fname" required>
+                    <br>
+                    <br>
+                    <font color="white">Last Name:</font>
+                    <input type="text" name="lname" required>
+                    <br>
+                    <br>
+                    <font color="white">Security Question:</font>
+                    <select id="UniqueQuestion" name="secQuestion" required>
+                        
+                        <%
+                            for (int i = 0; i < count; i++){
+                            out.println("<option>" + sec.get(i) + "</option>");
+                            }
+                            st.close();
+                            
+                            } catch (SQLException e) {
+                            //out.println(e);
+                            } catch (ClassNotFoundException e){
+                            out.println(e);    
+                            }
+                            %>
+                    </select>
+                    <br>
+                    <font color="white">Answer:</font>
+                    <input type="text" name="ans" required>
+                    <br>
+                    <br>
+                    <input type="submit" value="Register">
+                </form>
+                    <br>
+                        <a href="Login.html">Already Registered?</a>    
+                    </center>
+    </body>
+</html>

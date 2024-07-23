@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <style>
+        body{
+            background-image: url(https://images8.alphacoders.com/434/434693.png);
+        }
+        .button{
+            height:50px;
+            width:100px;
+        }
+
+    </style>
+    <head>
+        <title>K9's Forum</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+    <center>
+        <h1><font color="red">Welcome to My Forum</font></h1>
+        <button type="button" class="button" onclick="window.location.href = 'RegisterForm.jsp'">Register</button>
+        <button type="button" class="button" onclick="window.location.href = 'Login.html'">Login</button>
+    </center>
+    </body>
+</html>

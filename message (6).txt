@@ -1,0 +1,72 @@
+<%-- 
+    Document   : Register
+    Created on : 23 Nov 2020, 12:27:20
+    Author     : User
+--%>
+<%@page import="java.io.IOException"%>
+<%@page import="java.util.regex.Pattern"%>
+<%@page import="java.sql.*"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <style>
+        body{
+            background-image: url(https://images8.alphacoders.com/434/434693.png);
+        }
+        .button{
+            height:50px;
+            width:100px;
+        }
+        
+    </style>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Register</title>
+    </head>
+    <body>
+        
+        <%
+        String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+        String sourceURL = "jdbc:sqlserver://DESKTOP-07O5PL8\\WORKPLZ:1433;databaseName=Forum;user=sa;password=password123";
+        
+        try {
+            Class.forName(driverName);
+            Connection con = null;
+            con = DriverManager.getConnection(sourceURL);
+            
+            Statement st = con.createStatement();
+            String username = request.getParameter("user");
+            String pass = request.getParameter("pass");
+            String pass2 = request.getParameter("pass2");
+            String ans = request.getParameter("ans");
+            String sec = request.getParameter("secQuestion");
+            
+            boolean matches = Pattern.matches("[A-Z]", pass);
+            
+            if(pass.equals(pass2) && (matches = true)){
+            st.executeQuery("INSERT INTO People (Username, Password, UniqueQuestion, UniqueAnswer) SELECT '"+username+"','"+pass+"',QuestionID,'"+ans+"'FROM UniqueQuestions WHERE UniqueQuestion='"+sec+"'");
+            }
+            else
+            {
+            out.println("<center>");
+            out.println("<font color = 'red'>Your passwords do not match or your passwords do not start with a capital letter</font>");
+            out.println("<br>");
+            out.println("<a href='RegisterForm.jsp'>Try again</a>");
+            out.println("</center>");
+            }
+            st.close();
+            
+            } catch (SQLException e){
+            //out.println(e);
+            } catch (ClassNotFoundException e){
+            out.println(e);
+            }
+            
+        %>
+    <center>
+        <h1><font color="red">Thank you for registering</font></h1>
+        <br>
+        <a href="Login.html">Click Here To Login</a>
+    </center>
+    </body>
+</html>
