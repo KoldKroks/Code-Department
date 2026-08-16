@@ -1,7 +1,7 @@
 <%-- 
     Document   : signup
     Created on : 23 Nov 2020, 11:08:32
-    Author     : Majal
+    Author     : KoldKroks
 --%>
 <%@page import="java.io.IOException"%>
 <%@page import="java.util.Set"%>
@@ -66,7 +66,7 @@
     </center>
     <% 
         String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-        String sourceURL = "jdbc:sqlserver://REDACTED_HOST\\REDACTED_HOST:1433;databaseName=Forums Page;user=sa;password=REDACTED_PASSWORD";
+        String sourceURL = "jdbc:sqlserver://<DB_HOST>:1433;databaseName=Forums Page;user=<DB_USER>;password=<DB_PASSWORD>";
         
         try{
             Class.forName(driverName);

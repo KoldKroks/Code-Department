@@ -5,9 +5,9 @@ GO
 CREATE DATABASE [TygerBergFoodProject]
  CONTAINMENT = NONE
  ON  PRIMARY 
-( NAME = N'TygerBerg Food project', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.REDACTED_HOST\MSSQL\DATA\TygerBerg Food project.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
- LOG ON 
-( NAME = N'TygerBerg Food project_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.REDACTED_HOST\MSSQL\DATA\TygerBerg Food project_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+( NAME = N'TygerBerg Food project', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.DEVMACHINE\MSSQL\DATA\TygerBerg Food project.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON
+( NAME = N'TygerBerg Food project_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL13.DEVMACHINE\MSSQL\DATA\TygerBerg Food project_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
 GO
 
 IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
